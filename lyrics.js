@@ -123,8 +123,13 @@ const lyricsElement = document.getElementById("lyric");
           let currentLine = lines.item(currentIndex);
           currentLine.classList.add("active");
         }
-        previousIndex = currentIndex;
+      } else {
+        const lines = lyricsElement.children;
+        Array.from(lines).forEach(line => {
+          line.classList.remove("active");
+        });
       }
+      previousIndex = currentIndex;
 
       // handle play / pause icon
       const isPlaying = player.isPlayerPlaying;
