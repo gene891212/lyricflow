@@ -1,58 +1,50 @@
 main {
   max-width: 700px;
-  margin: 0 auto;
+  margin: 0 auto 8rem auto;
 }
+
+@import "css/_single";
+@import "css/_base";
+
+// necessary
+@import "css/_mixin/index";
+@import "css/_variables";
+@import "css/_fixed-button";
 
 .video-container {
   position: relative;
   padding-bottom: 56.25%;
   height: 0;
-  margin: .5rem 0 1rem 0
+  margin: .5rem 0 1rem 0;
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
 }
-
-.video-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-@import "_mixin/index";
-@import "_variables";
-@import "_base";
-@import "_fixed-button";
-
 
 [theme=dark] {
-  .lrc {
-    // border: 3px solid $global-border-color-dark;
-
+  #lyric {
     .lrc__line {
       border-bottom: 3px dashed $global-border-color-dark;
-    }
-
-    .active {
-      color: map-get($admonition-color-map, 'note');
     }
   }
 }
 
 [theme=black] {
-  .lrc {
+  #lyric {
     // border: 3px solid $global-border-color-black;
 
     .lrc__line {
       border-bottom: 3px dashed $global-border-color-black;
     }
-
-    .active {
-      color: map-get($admonition-color-map, 'note');
-    }
   }
 }
 
-.lrc {
+#lyric {
   // border: 3px solid $global-border-color;
 
   .lrc__line {
@@ -74,6 +66,10 @@ main {
 
   .active {
     color: map-get($admonition-color-map, 'note');
+
+    rt {
+      color: map-get($admonition-color-map, 'note');
+    }
   }
 }
 
@@ -102,7 +98,7 @@ main {
   background: transparent;
 } */
 
-.control-buttons {
+#control-buttons {
   position: fixed;
   bottom: 1rem;
   left: 0;
@@ -114,13 +110,13 @@ main {
   gap: 10px;
 
   a {
+    @extend .fixed-button;
     display: inline;
     position: relative;
     right: unset;
     bottom: unset;
 
     &#repeat {
-
       &.active {
         color: map-get($admonition-color-map, 'note');
       }
