@@ -3,13 +3,13 @@ main {
   margin: 0 auto 8rem auto;
 }
 
-@import "css/_single";
-@import "css/_base";
+@import "scss/_single";
+@import "scss/_base";
 
 // necessary
-@import "css/_mixin/index";
-@import "css/_variables";
-@import "css/_fixed-button";
+@import "scss/_mixin/index";
+@import "scss/_variables";
+@import "scss/_fixed-button";
 
 .video-container {
   position: relative;

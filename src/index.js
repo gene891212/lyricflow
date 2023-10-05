@@ -1,3 +1,7 @@
+import './styles/main.scss';
+import './init-firebase.js'
+
+
 class LyricsManager {
   constructor(lyricsData) {
     this.data = lyricsData;
